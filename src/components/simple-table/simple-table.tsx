@@ -9,8 +9,8 @@ type SimpleTableProps = {
 
 export default function SimpleTable(simpleTableProps: SimpleTableProps) {
   return (
-    <div className='inline-block min-w-full shadow rounded-lg overflow-x-auto p-1'>
-      <table className="min-w-full leading-normal">
+    <div className='flex inline-block min-w-full max-h-screen shadow rounded-lg overflow-x-auto p-1'>
+      <table className="min-w-full h-full leading-normal">
         <thead>
           <SimpleTableHeader columns={simpleTableProps.columns} />
         </thead>

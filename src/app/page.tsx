@@ -5,15 +5,18 @@ import { Suspense, useEffect, useState } from "react"
 import Loading from "./loading"
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true)
   const [columns, setColumns] = useState<string[]>([])
   const [rows, setRows] = useState<string[][]>([[]])
 
   useEffect(() => {
+    setIsLoading(true)
     fetch('https://dummyjson.com/users')
     .then(res => res.json())
     .then(data => {
       setColumns(mappingColumns(data.users[0]))
       setRows(mappingRows(data.users))
+      setIsLoading(false)
     })
   }, [])
 
@@ -40,10 +43,12 @@ export default function Home() {
   }
 
   return (
-    <main className="flex items-center justify-center p-24">
-      <Suspense fallback={<Loading />}>
+    <main className="items-center justify-center m-20">
+      {
+        isLoading ? 
+        <Loading /> : 
         <SimpleTable rows={rows} columns={columns} />
-      </Suspense>
+      }
     </main>
   )
 }
