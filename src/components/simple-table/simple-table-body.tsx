@@ -10,7 +10,7 @@ export default function SimpleTableBody({ rows }: rowsProps) {
           <tr key={itemIndex}>
             {
               item.map((r, index) => (
-                <td key={index} className='px-5 py-5 border-b border-gray-200 bg-white'>{r}</td>
+                <td key={index} className='px-5 py-3 border-b border-gray-200 bg-white'>{r}</td>
               ))
             }
           </tr>

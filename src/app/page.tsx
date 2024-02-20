@@ -43,12 +43,14 @@ export default function Home() {
   }
 
   return (
-    <main className="items-center justify-center m-20">
-      {
-        isLoading ? 
-        <Loading /> : 
-        <SimpleTable rows={rows} columns={columns} />
-      }
+    <main className="items-center justify-center p-20 h-dvh">
+      <div className="flex h-5/6">
+        {
+          isLoading ? 
+          <Loading /> : 
+          <SimpleTable rows={rows} columns={columns} />
+        }
+      </div>
     </main>
   )
 }
